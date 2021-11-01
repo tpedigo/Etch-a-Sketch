@@ -1,0 +1,1 @@
+A program using different event listeners to create an interactive sketchpad for the user.
