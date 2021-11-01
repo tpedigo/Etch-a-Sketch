@@ -10,7 +10,7 @@
     height: 92vh;
     width: 92vh;
     display: grid;
-    border: 1px solid lightslategrey;
+    border: 1px solid rgba(136, 144, 151, 0.68);
 }
 
 .square {
