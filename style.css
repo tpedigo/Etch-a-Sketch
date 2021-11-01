@@ -10,12 +10,11 @@
     height: 92vh;
     width: 92vh;
     display: grid;
-    /* grid-template-columns: repeat(16, auto);
-    grid-template-rows: repeat(16, auto); */
+    border: 1px solid lightslategrey;
 }
 
 .square {
-    border: 1px solid rgb(114, 114, 114);
+    border: 1px solid rgba(205, 205, 205, 0.125);
 }
 
 .hover {
