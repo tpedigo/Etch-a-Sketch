@@ -1,16 +1,22 @@
 const gridContainer = document.querySelector(".gridContainer");
 
-for (i=0; i<(16*16); i++) {
-    const square = document.createElement("div");
-    square.classList.add("square");
-    gridContainer.appendChild(square);
+function newGrid(gridHeight) {
+    for (i=0; i<(gridHeight**2); i++) {
+        const square = document.createElement("div");
+        square.classList.add("square");
+        gridContainer.appendChild(square);
+    }
+    gridContainer.style.gridTemplateColumns = `repeat(${gridHeight}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, 1fr)`;
+    document.querySelectorAll(".square").forEach((square) => {
+        square.addEventListener("mouseover", hover);
+        square.addEventListener("mouseout", normal);
+        square.addEventListener("mousemove", fill);
+    });
 }
 
-document.querySelectorAll(".square").forEach((square) => {
-    square.addEventListener("mouseover", hover);
-    square.addEventListener("mouseout", normal);
-    square.addEventListener("mousemove", fill);
-});
+let gridHeight = 16;
+newGrid(gridHeight);
 
 function hover(e) {
     e.target.classList.add("hover");
@@ -36,4 +42,10 @@ function resetGrid() {
     document.querySelectorAll(".square").forEach((square) => {
         square.classList.remove("filled");
     });
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+    let newGridHeight = prompt("Enter number of squares for height of new grid:", "Height (in squares)")
+    newGridHeight = Number(newGridHeight);
+    newGrid(newGridHeight);
 }
