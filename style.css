@@ -1,8 +1,21 @@
-.container {
-    height: 99vh;
-    width: 99vh;
-    display: grid;
+/* body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
     margin: 0 auto;
+}
+.gridContainer {
+    height: 92vh;
+    width: 92vh;
+    display: grid;
     grid-template-columns: repeat(16, auto);
     grid-template-rows: repeat(16, auto);
 }
@@ -17,4 +30,10 @@
 
 .filled {
     background-color: black;
+}
+
+.clear {
+    font-family: sans-serif;
+    padding: 12px 24px;
+    flex-grow: 0;
 }

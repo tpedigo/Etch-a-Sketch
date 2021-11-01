@@ -1,10 +1,16 @@
-const container = document.querySelector(".container");
+const gridContainer = document.querySelector(".gridContainer");
 
 for (i=0; i<(16*16); i++) {
     const square = document.createElement("div");
     square.classList.add("square");
-    container.appendChild(square);
+    gridContainer.appendChild(square);
 }
+
+document.querySelectorAll(".square").forEach((square) => {
+    square.addEventListener("mouseover", hover);
+    square.addEventListener("mouseout", normal);
+    square.addEventListener("mousemove", fill);
+});
 
 function hover(e) {
     e.target.classList.add("hover");
@@ -22,8 +28,12 @@ function fill(e) {
     }
 }
 
-document.querySelectorAll(".square").forEach((square) => {
-    square.addEventListener("mouseover", hover);
-    square.addEventListener("mouseout", normal);
-    square.addEventListener("mousemove", fill);
-});
+const clear = document.querySelector(".clear");
+
+clear.addEventListener("click", resetGrid);
+
+function resetGrid() {
+    document.querySelectorAll(".square").forEach((square) => {
+        square.classList.remove("filled");
+    });
+}
